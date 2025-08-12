@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas HTTP</title>
+</head>
+<body>
+    <header>
+        <h1>Preguntas sobre el Protocolo HTTP</h1>
+    </header>
+
+
+<section>
+    <h3>Sección de Preguntas sobre HTTP</h3>
+    <ol>
+        <li>
+            <hr>
+            <h4>Sobre qué protocolo binario está montado el protocolo HTTP?</h4>
+            <p>Esta montado sobre el protocolo TCP, el cual resuelve las solicitudes cliente-servidor.</p>    
+        </li>
+        <li>
+            <h4>Cuáles son los clientes HTTP y los servidores HTTP más utilizados?</h4>
+            <p>Del lado del <b>cliente</b> se encuentra el navegador y por el lado del <b>Servidor</b> encontramos los Web Server </p>
+        </li>
+        <li>
+            <h4>Qué verbos admite un comando en el requerimiento HTTP?</h4>
+            <p>Los verbos que admite son: GET - PUT - DELETE - POST - CONNECT</p>
+        </li>
+        <li>
+            <h4>Qué contenido lleva el body de un requerimiento HTTP?</h4>
+            <p>El body puede contener datos en cualquier formato, por ejemplo: <br>
+            Datos ingresados en campos de un formulario <br>
+            Files enviados en un proceso de upload <br></p>
+        </li>
+        <li>
+            <h4>Qué diferencia existe entre un URL y un URI?</h4>
+            <p>El campo <b>URL</b> contiene al conjunto <b>nombre de referencia +</b> la <b>URI</b>, y este ultimo es el que hace referencia a la ubicacion de un recurso y sus valores <br>
+            <b>Ejemplo: </b>http://nombreHost.dominioHost:puerto + URI </p>
+        </li>
+        <li>
+            <h4>En qué variables quedan almacenados datos de las respuestas http?</h4>
+            <p>El Header contiene toda la información relativa a la codificacion de los mensajes (metadatos)</p>
+        </li>
+        <li>
+            <h4>Qué significa Virtual hosting?</h4>
+            <p>Virtual hosting es el termino que se utiliza para para utilizar multiples dominios sobre una misma IP.Los servidores WEB que corren http 1.1 pueden atender múltiples dominios sobre una misma ip. En el caso de usar hosts virtuales habrá que declarar el nombre de host de un servidor de DNS Público</p>
+        </li>
+        <li>
+            <h4>Por qué el HTTP se considera STATE LESS?</h4>
+            <p>HTTP se considera State Less (sin estado) porque el servidor no mantiene ningún estado de las solicitudes anteriores, esto significa que cada solicitud se trata como una transacción independiente.</p>
+        </li>
+        <li>
+            <h4>Cómo va a mejorar la velocidad de la WEB en poco tiempo?</h4>
+            <p>Con HTTP/3 y QUIC se podra lograr una mayor velocidad de la web.</p>
+        </li>
+        <li>
+            <h4>Cómo va a mejorar el comportamiento de una aplicación WEB en ambientes ruidosos o de débil conexión?</h4>
+            <p>Con HTTP/3 y QUIC va a mejorar la velocidad no se va a notar tanto como de HTTP/1.1 a HTTP/2, pero va a suponer una mejora sobre todo en situaciones en las que se produzcan errores en la transmisión,como en conexiones débiles o inestables, algo muy importante,teniendo en cuenta que el móvil es el medio preferido de navegación de los usuarios y que no siempre se dan las mejores condiciones de cobertura . <br>
+            En ambientes con mucho ruido electromagnético, las conexiones largas producen gran cantidad de paquetes
+            repetidos por falta de confirmaci ón por parte de los receptores , esto se traduce en grandes retardos en la
+            transmisión de datos. Quic produce conexiones UDP mucho mas cortas, eficientes y de facil establecimiento,
+            ideales para la transmisión de las partes constitutivas de un documento HTML.</p>
+        </li>
+    </ol>
+</section>
+</body>
+</html>

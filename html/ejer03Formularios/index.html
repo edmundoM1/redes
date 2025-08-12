@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Formulario</title>
+</head>
+<body>
+    <h1>Formulario para entradas sin validación</h1>
+    <form method="GET" action="./respuestaFormulario.html" target="_blank">
+      
+      <h3>Entradas simples</h3>
+      <ul>
+        <li style="margin-top: 10px;">
+          <label style="font-weight: bold;" for="apellido">Apellido: </label><br>
+          <input name="apellido" type="text" id="apellido" autofocus="autofocus">
+        </li>
+        <li style="margin-top: 10px;">
+          <label style="font-weight: bold;" for="contrasena">Contraseña</label><br>
+          <input name="contrasena" id="contrasena" type="password">
+        </li>
+        <li style="margin-top: 10px;">
+          <label style="font-weight: bold;" for="oculto">Oculto: </label><br>
+          <input name="oculto" type="hidden" id="oculto">
+        </li>
+        <li style="margin-top: 10px;">
+          <label style="font-weight: bold;" for="deshab">Campo deshabilitado: </label><br>
+          <input name="deshab" type="text" id="deshab" disabled="disabled" placeholder="valor deshabilitado">
+        </li>
+        <li style="margin-top: 10px;">
+          <label style="font-weight: bold;" for="lectura">Campo de solo lectura: </label><br>
+          <input name="lectura" type="text" id="lectura" placeholder="valorSoloLectura" readonly="">
+        </li>
+        <h3>Entradas de seleccion </h3>
+        <li style="margin-top: 10px;">
+          <label style="font-weight: bold;" for="deportes">Practica deportes </label><br>
+          <input name="deportes" type="checkbox" id="deportes" value="si">
+        </li>
+        <li style="margin-top: 10px;">
+          <label style="font-weight: bold;" for="musical">Practica musical</label><br>
+          <input name="musical" type="checkbox" id="musical" value="si">
+        </li>
+        <li style="margin-top: 10px;">
+          <label style="font-weight: bold;" for="pinturaArtistica">Practica de pintura artistica </label><br>
+          <input name="pinturaArtistica" type="checkbox" id="pinturaArtistica" value="si">
+          </li><li style="margin-top: 10px;">
+            <label style="font-weight: bold;">Sexo</label><br>
+            <label for="masculino">Masculino </label>
+            <input type="radio" name="sexo" id="masculino" value="m" checked="checked">
+            <label for="femenino">Femenino</label>
+            <input type="radio" name="sexo" id="femenino" value="f">
+          </li>
+        
+        <li style="margin-top: 10px;">
+            <label style="font-weight: bold;" for="estudios">Estudios cursados: </label><br>
+            <select name="estudios" id="estudios">
+                <option value="pri" selected="selected">Primarios</option>
+                <option value="sec">Secundarios</option>
+                <option value="ter">Terciarios</option>
+                <option value="uni">Universitarios</option>
+                <option value="pos">Postgrado</option>
+            </select>
+        </li>
+        <li style="margin-top: 10px;">
+            <label style="font-weight: bold;" for="fechaYHora">Fecha y hora: </label><br>
+            <input name="fechaYHora"type="date" id="fechaYHora"> <input name="hora" type="time" id="hora">
+        </li>
+
+        <li style="margin-top: 10px;">
+            <label style="font-weight: bold;" for="color"> Color</label><br>
+            <input name="color" type="color" id="color">
+        </li>
+      </ul>
+        <li style="margin-top: 10px;">
+            <button type="submit">Enviar</button>
+        </li>
+        <li style="margin-top: 10px;">
+            <button type="reset">Restablecer</button>
+        </li>  
+    </ul>
+    </form>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.indices a {
+    display: block;
+    margin-bottom: 10px; /* Espacio entre los enlaces */
+    text-decoration: none; /* Quitar subrayado */
+    color: blue; /* Color del texto */
+}
+
+.indices a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
