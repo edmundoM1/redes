@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Selector de clase</title>
+    <style>
+        h1, h2 {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+        p {
+            font-size: 1em;
+            margin-bottom: 60px;
+        }
+        .claseResaltado {
+            font-size: 1.2em;
+            font-weight: bold;
+            background-color: yellow;
+        }
+        .claseAyuda {
+            font-size: 1.1em;
+            font-style: italic;
+            color: orange;
+            border: 2px solid #ffe4a1;
+            background-color: #fffbe6;
+            padding: 8px;
+        }
+        .claseContenidoComun {
+            font-size: 1.1em;
+        }
+        #idUnico {
+            color: #b30000;
+            background: #fff;
+            border: 3px solid #d6d6d6;
+            font-size: 1.3em;
+            font-style: italic;
+            font-weight: bold;
+            padding: 10px;
+            width: 390px;
+            background-color: #fff;
+        }
+        .imagenAl50 {
+            width: 50%;
+            max-width: 100%;
+            display: block;
+            margin-bottom: 30px;
+        }
+        .claseCita {
+            font-size: 0.9em;
+            color: #2d2d8c;
+            border: 1px solid #2d2d8c;
+            padding: 6px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Selectores de clase</h1>
+    <h2>A partir de esta página no usaremos más el atributo style en ninguna etiqueta.</h2>
+    <h2>Todo el estilo aplicado en el documento será definido dentro de una etiqueta style como "clase", anidada en la etiqueta head del documento.</h2>
+    <pre>
+p { /*El default para cualquier párrafo*/
+    font-size: 1em;
+    margin-bottom:60px;
+}
+    </pre>
+    <h2>Todos los párrafos tienen un default como estilo que incluyen un margin-bottom para separarlos más entre ellos.</h2>
+    <pre>
+.claseResaltado {
+    font-size:1.2em;
+    font-weight:bold;
+    background-color: yellow;
+}
+    </pre>
+    <p class="claseCita">
+        Este párrafo toma el estilo definido en la etiqueta style en el header del documento como class="claseCita"
+    </p>
+    <p class="claseResaltado">
+        Este párrafo toma el estilo definido en la etiqueta style en el header del documento como class="claseResaltado"
+    </p>
+    <p class="claseAyuda">
+        Este párrafo toma el estilo definido en la etiqueta style en el header del documento como class="claseAyuda"
+    </p>
+    <p class="claseContenidoComun">
+        Este párrafo toma el estilo definido en la etiqueta style en el header del documento como class="claseContenidoComun"
+    </p>
+    <p id="idUnico">
+        Párrafo formateado por un estilo particular definido en el style del documento para un párrafo específico id="idUnico". No se trata de un selector de clase sino de un selector de elemento "#"
+    </p>
+    <h2>
+        Todas las imagenes con class="imagenAl50" en esta página se encuentran al 50% del ancho del contenedor mas allá de su tamaño real en pixeles:
+    </h2>
+    <img src="casa.png" alt="Ejemplo" class="imagenAl50">
+</body>
+</html>

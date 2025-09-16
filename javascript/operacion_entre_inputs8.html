@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones entre inputs</title>
+</head>
+<body>
+    <h3>Introducir un valor en los cuadros de texto y luego pulsar el botón para ejecutar la función correspondiente.</h3>
+    
+    <div style="background-color: lightblue; padding: 20px; margin: 20px 0; border: 1px solid #333;">
+        <table>
+            <tr>
+                <td>Entrada 1:</td>
+                <td><input type="number" id="entrada1" ></td>
+            </tr>
+            <tr>
+                <td>Entrada 2:</td>
+                <td><input type="number" id="entrada2"></td>
+            </tr>
+            <tr>
+                <td>Entrada 3:</td>
+                <td><input type="number" id="entrada3"></td>
+            </tr>
+            <tr>
+                <td>Resultado:</td>
+                <td><input type="text" id="resultado" readonly></td>
+            </tr>
+        </table>
+    </div>
+    
+    <button onclick="suma()">Suma</button>
+    <button onclick="promedio()">Promedio</button>
+    <button onclick="mayor()">Mayor</button>
+    <div style="margin-top: 20px;">
+        <button><a href="./">Volver atras</a></button>
+    </div>
+    <script>
+        function suma() {
+            const entrada1 = parseFloat(document.getElementById('entrada1').value);
+            const entrada2 = parseFloat(document.getElementById('entrada2').value);
+            const entrada3 = parseFloat(document.getElementById('entrada3').value);
+            
+            if (isNaN(entrada1) || isNaN(entrada2) || isNaN(entrada3)) {
+                alert('Por favor introduce números válidos en todas las entradas');
+                return;
+            }
+            
+            const resultado = entrada1 + entrada2 + entrada3;
+            document.getElementById('resultado').value = resultado;
+        }
+        
+        function promedio() {
+            const entrada1 = parseFloat(document.getElementById('entrada1').value);
+            const entrada2 = parseFloat(document.getElementById('entrada2').value);
+            const entrada3 = parseFloat(document.getElementById('entrada3').value);
+            
+            if (isNaN(entrada1) || isNaN(entrada2) || isNaN(entrada3)) {
+                alert('Por favor introduce números válidos en todas las entradas');
+                return;
+            }
+            
+            const resultado = (entrada1 + entrada2 + entrada3) / 3;
+            document.getElementById('resultado').value = resultado.toFixed(2);
+        }
+        
+        function mayor() {
+            const entrada1 = parseFloat(document.getElementById('entrada1').value);
+            const entrada2 = parseFloat(document.getElementById('entrada2').value);
+            const entrada3 = parseFloat(document.getElementById('entrada3').value);
+            
+            if (isNaN(entrada1) || isNaN(entrada2) || isNaN(entrada3)) {
+                alert('Por favor introduce números válidos en todas las entradas');
+                return;
+            }
+            
+            const resultado = Math.max(entrada1, entrada2, entrada3);
+            document.getElementById('resultado').value = resultado;
+        }
+    </script>
+</body>
+</html>

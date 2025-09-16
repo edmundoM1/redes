@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+    font-size: 2em;
+    color: darkblue;
+    background-color: aquamarine;
+    }
+h2 {
+    text-align: center;
+    font-size: 1.3em;
+    color: #0033cc;
+    background-color: aquamarine;
+    font-weight: bold;
+    }
+p {
+    text-align: left;
+    font-size: 1em;
+    color: blue;
+    font-style: italic;
+    border-top: solid thin blue;
+    border-bottom: solid thin blue;
+    }

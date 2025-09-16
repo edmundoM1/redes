@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Confirmación</title>
+</head>
+<body>
+    <div style="background-color: darkslategray; color: white; padding: 20px;">
+        <h2>Confirmación de envío y de reset</h2>
+        
+        <form id="miFormulario">
+            <table>
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input type="text" id="nombre" name="nombre"></td>
+                </tr>
+                <tr>
+                    <td>Apellido:</td>
+                    <td><input type="text" id="apellido" name="apellido"></td>
+                </tr>
+            </table>
+            
+            <br>
+            
+            <button type="button" onclick="blanquear()">Reset valores</button>
+            <button type="button" onclick="enviar()">Enviar</button>
+            <button ><a href="./">Volver atras</a></button>
+        </form>
+    </div>
+
+    <script>
+        function blanquear() {
+            document.getElementById('nombre').value = '';
+            document.getElementById('apellido').value = '';
+        }
+        
+        function enviar() {
+            const confirmacion = confirm("¿Está seguro de enviar?");
+            
+            if (confirmacion) {
+                window.location.href = "respuestaformulario.html";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla Fullscreen Adaptable</title>
+  <style>
+   html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 60px;
+  background: teal;
+  color: white;
+  text-align: center;
+  line-height: 60px;
+  font-size: 20px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+footer {
+  height: 40px;
+  background: teal;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+main {
+  flex: 1;             
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  background: #006666;
+  color: white;
+  text-align: left;
+}
+
+th, td {
+  border: 1px solid #444;
+  text-align: center;
+  padding: 8px;
+  white-space: nowrap;
+}
+
+thead {
+  background: salmon;
+  color: #222;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+tbody tr:nth-child(even) {
+  background: #008080;
+}
+
+tbody tr:nth-child(odd) {
+  background: #009999;
+}
+
+tbody tr:hover {
+  background: #005555;
+}
+
+td:nth-child(4), th:nth-child(4) {
+  font-weight: bold;
+  color: #000;
+}
+
+
+@media (max-width: 992px) {
+  td:nth-child(6), th:nth-child(6) { display: none; } 
+}
+
+@media (max-width: 768px) {
+  td:nth-child(5), th:nth-child(5) { display: none; } 
+  td:nth-child(6), th:nth-child(6) { display: none; }
+}
+
+@media (max-width: 576px) {
+  td:nth-child(4), th:nth-child(4) { display: none; } 
+  td:nth-child(5), th:nth-child(5) { display: none; }
+  td:nth-child(6), th:nth-child(6) { display: none; }
+}
+</style>
+</head>
+<body>
+  <header>
+    Rwd (Responsive Web Design) TABLE:
+  </header>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nick</th>
+          <th>Mail</th>
+          <th>Web</th>
+          <th>Twitter</th>
+          <th>Skype</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Ana</td><td>ana@mail.com</td><td>ana.com</td><td>@ana</td><td>ana.skype</td></tr>
+        <tr><td>2</td><td>Carlos</td><td>carlos@mail.com</td><td>carlos.dev</td><td>@carlos</td><td>carlos.skype</td></tr>
+        <tr><td>3</td><td>Lucía</td><td>lucia@mail.com</td><td>lucia.org</td><td>@lu</td><td>lucia.skype</td></tr>
+        <tr><td>4</td><td>Mario</td><td>mario@mail.com</td><td>mario.io</td><td>@mario</td><td>mario.skype</td></tr>
+        <tr><td>5</td><td>Sofía</td><td>sofia@mail.com</td><td>sofia.design</td><td>@sofi</td><td>sofia.skype</td></tr>
+        <tr><td>6</td><td>Tomás</td><td>tomas@mail.com</td><td>tomas.dev</td><td>@tomi</td><td>tomas.skype</td></tr>
+        <tr><td>7</td><td>Valeria</td><td>valeria@mail.com</td><td>valeria.net</td><td>@val</td><td>valeria.skype</td></tr>
+        <tr><td>8</td><td>Pedro</td><td>pedro@mail.com</td><td>pedro.com</td><td>@pedro</td><td>pedro.skype</td></tr>
+        <tr><td>9</td><td>Julieta</td><td>julieta@mail.com</td><td>julieta.org</td><td>@juli</td><td>julieta.skype</td></tr>
+        <tr><td>10</td><td>Diego</td><td>diego@mail.com</td><td>diego.tech</td><td>@diego</td><td>diego.skype</td></tr>
+        <tr><td>11</td><td>Laura</td><td>laura@mail.com</td><td>laura.dev</td><td>@lau</td><td>laura.skype</td></tr>
+        <tr><td>12</td><td>Martín</td><td>martin@mail.com</td><td>martin.ar</td><td>@martin</td><td>martin.skype</td></tr>
+        <tr><td>13</td><td>Flor</td><td>flor@mail.com</td><td>flor.art</td><td>@flor</td><td>flor.skype</td></tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    Pie
+  </footer>
+</body>
+</html>

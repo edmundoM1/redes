@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Centrado y padding</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(rgb(255, 255, 255));
+    }
+
+  
+    .caja1 {
+      background-color: rgb(173, 216, 230);
+      width: 50%;
+      margin: 0% auto;
+    }
+
+ 
+    .caja2 {
+      background-color: rgb(144, 238, 144);
+      padding: 100px;
+      width: 50%;
+    }
+
+    .caja3 {
+      background-color: rgb(221, 203, 35);
+      padding: 50px;
+      box-sizing: border-box;
+      width: 50%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Los siguientes elementos tienen un ancho del 50 % de la ventana</h1>
+
+ 
+  <div class="caja1">
+    <p>Texto en interior</p>
+    <p>Texto en interior</p>
+    <p>Texto en interior</p>
+    <p>Texto en interior</p>
+    <p>Texto en interior</p>
+    <p>Texto en interior</p>
+  </div>
+
+
+  <div class="caja2">
+    <p>Texto en interior con padding y sin box_sizing</p>
+    <p>Texto en interior con padding y sin box_sizing</p>
+    <p>Texto en interior con padding y sin box_sizing</p>
+    <p>Texto en interior con padding y sin box_sizing</p>
+    <p>Texto en interior con padding y sin box_sizing</p>
+  </div>
+
+
+  <div class="caja3">
+    <p>Texto en interior con padding y con box-sizing</p>
+    <p>Texto en interior con padding y con box-sizing</p>
+    <p>Texto en interior con padding y con box-sizing</p>
+    <p>Texto en interior con padding y con box-sizing</p>
+    <p>Texto en interior con padding y con box-sizing</p>
+  </div>
+
+</body>
+</html>

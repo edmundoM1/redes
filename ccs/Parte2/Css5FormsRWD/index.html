@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Responsivo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header, footer {
+      background: teal;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+    main {
+      flex: 1; 
+      display: flex;
+      align-items: stretch;
+    }
+    form {
+      flex: 1;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      background: #ccc;
+      padding: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .campo {
+      background: #ddd;
+      padding: 10px;
+      border: 1px solid #999;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+    }
+    input, select {
+      width: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+    }
+    .acciones {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+     button {
+    padding: 14px 40px;   
+    font-size: 1.2em;    
+    border: none;
+    border-radius: 8px;   
+    background: #00796b;  
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s, 
+    background 0.2s;
+    min-width: 150px;     
+  }
+  button:hover {
+    background: #004d40;  
+    transform: scale(1.05); 
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Formulario</h2>
+  </header>
+
+  <main>
+    <form>
+      <div class="campo">
+        <label>1 Apellido:</label>
+        <input type="text">
+      </div>
+      <div class="campo">
+        <label>2 Nombres:</label>
+        <input type="text">
+      </div>
+      <div class="campo">
+        <label>3 Contraseña:</label>
+        <input type="password">
+      </div>
+      <div class="campo">
+        <label>4 Campo deshabilitado:</label>
+        <input type="text" value="valor deshabilitado" disabled>
+      </div>
+      <div class="campo">
+        <label>5 Fecha:</label>
+        <input type="date">
+      </div>
+      <div class="campo">
+        <label>6 DNI:</label>
+        <input type="text">
+      </div>
+      <div class="campo">
+        <label>7 Actividades extracurriculares:</label>
+        <input type="checkbox"> Música <br>
+        <input type="checkbox"> Pintura artística
+      </div>
+      <div class="campo">
+        <label>8 Sexo:</label>
+        <input type="radio" name="sexo"> Masculino<br>
+        <input type="radio" name="sexo"> Femenino
+      </div>
+      <div class="campo">
+        <label>9 Vacío:</label>
+      </div>
+      <div class="campo">
+        <label>10 Estudios cursados:</label>
+        <select>
+          <option>Primarios</option>
+          <option>Secundarios</option>
+          <option>Universitarios</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>11 Área de desempeño:</label>
+        <select>
+          <option>Administración</option>
+          <option>Sistemas</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>12 Turno:</label>
+        <select>
+          <option>Mañana</option>
+          <option>Tarde</option>
+          <option>Noche</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>13 Conduce:</label>
+        <input type="radio" name="conduce"> Sí<br>
+        <input type="radio" name="conduce"> No
+      </div>
+
+      <div class="acciones">
+        <button type="submit">Enviar</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>Pie de formulario</p>
+  </footer>
+</body>
+</html>

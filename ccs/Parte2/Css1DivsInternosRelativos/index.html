@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contenedores relativos</title>
+<style>
+html, body {
+  margin:0;
+  padding:0;
+  height:100%;
+  background:#f2edcd;
+  font:20px/1.15 Arial, sans-serif;
+}
+body::before, body::after{
+  content:"";
+  position:fixed;
+  top:0; bottom:0;
+  width:80px;
+  background:#0436cc;
+  pointer-events:none;
+}
+body::before{ left:0; }
+body::after { right:0; }
+
+h1{
+  margin:18px 0 10px 90px;
+  font-weight:bold;
+  text-align:left;
+}
+
+/* base */
+.relativo{ position:relative; margin:14px 0; }
+
+/* 1) los verdes pegados a la izquierda, sobre el borde azul */
+.clase1{
+  background:#0b6f1f;
+  color:#fff;
+  height:62px;
+  display:flex;
+  align-items:center;
+  font-weight:bold;
+  width:1060px;              /* largo como en la captura */
+  margin-left:90px;          /* “pegado” al borde azul */
+  padding-left:12px;
+  box-sizing:border-box;
+}
+
+/* 2) los amarillos centrados */
+.clase2{
+  background:#ffe15c;
+  color:#000;
+  width:620px;
+  min-height:36px;
+  padding:8px 14px;
+  margin:14px auto;
+  text-align:left;
+  box-sizing:border-box;
+}
+
+/* 3) el marrón centrado, con franja naranja abajo */
+.clase3{
+  background:#804e41;
+  color:#fff;
+  width:860px;
+  height:180px;
+  margin:26px auto;
+  overflow:auto;
+  padding:12px 14px;
+  box-sizing:border-box;
+}
+.clase3 .pie{
+  background:#ff8c00;
+  height:22px;
+  margin-top:10px;
+}
+
+/* imagen centrada */
+.imagen{ width:560px; margin:36px auto; }
+.imagen img{ width:100%; height:auto; display:block; }
+
+/* modal superpuesto como en la foto */
+.modal{
+  position:fixed;
+  top:180px;                 /* arranca debajo de los verdes */
+  left:50%;
+  transform:translateX(-50%);
+  width:860px;
+  height:360px;
+  background:rgba(69,77,130,0.72);
+  overflow:auto;
+  z-index:10;
+  padding:18px;
+  box-sizing:border-box;
+}
+.modal__titulo{
+  background:rgba(0,0,0,0.35);
+  color:#fff;
+  padding:8px 12px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+.modal__item{
+  background:rgba(130,120,70,0.88);
+  color:#fff;
+  padding:8px 12px;
+  margin:10px 0;
+}
+.modal__item.alto{
+  height:120px;
+  overflow:auto;
+}
+</style>
+</head>
+<body>
+
+  <h1>Divs internos relativos.</h1>
+
+  <div class="relativo clase1">Contenedor relativo clase1</div>
+  <div class="relativo clase1">Contenedor Relativo clase1</div>
+
+  <div class="relativo clase2">Contenedor relativo clase2</div>
+  <div class="relativo clase2">Contenedor relativo clase2</div>
+  <div class="relativo clase2">Contenedor relativo clase2</div>
+  <div class="relativo clase2">Contenedor relativo clase2</div>
+  <div class="relativo clase2">Contenedor relativo clase2</div>
+
+  <div class="relativo clase3">
+    Contenedor relativo clase3<br>
+    texto texto texto texto texto texto<br>
+    texto texto texto texto texto texto<br>
+    texto texto texto texto texto texto<br>
+    texto texto texto
+    <div class="pie"></div>
+  </div>
+
+  <div class="relativo clase2">Contenedor relativo clase2</div>
+  <div class="relativo clase2">Contenedor relativo clase2</div>
+  <div class="relativo clase2">Contenedor relativo clase2</div>
+  <div class="relativo clase2">Contenedor relativo clase2</div>
+
+  <div class="imagen">
+    <img src="Tigre.jpg" alt="Tigre">
+  </div>
+
+  <div class="modal">
+    <div class="modal__titulo">Contenedor Modal</div>
+    <div class="modal__item">Contenedor Modal</div>
+    <div class="modal__item">Contenedor Modal</div>
+    <div class="modal__item alto">
+      Contenedor Modal<br>
+      Contenedor Modal<br>
+      Contenedor Modal<br>
+      Contenedor Modal<br>
+      Contenedor Modal<br>
+      Contenedor Modal<br>
+      Contenedor Modal
+    </div>
+  </div>
+
+</body>
+</html>

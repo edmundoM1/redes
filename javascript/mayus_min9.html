@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir de minúsculas a mayúsculas</title>
+</head>
+<body>
+    <h3>Convertir de minúsculas a mayúsculas</h3>
+    
+    <p>Trabajo: <input type="text" id="trabajo"></p>
+    <p>Turno: <input type="text" id="turno"></p>
+    <div style="margin-top: 20px;">
+        <button><a href="./">Volver atras</a></button>
+    </div>
+    <script>
+        function convertirMayusculas(elemento) {
+            elemento.value = elemento.value.toUpperCase();
+        }
+        
+        document.getElementById('trabajo').onblur = function() {
+            convertirMayusculas(this);
+        };
+        
+        document.getElementById('turno').onblur = function() {
+            convertirMayusculas(this);
+        };
+    </script>
+</body>
+</html>

@@ -1,311 +1,148 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Horarios de Trabajo — Matriz y Tabla</title>
+<style>
+:root{
+    --line:#222;
+    --head:#cfe9ea;
+    --side:#a9d6d8;
+    --bg:#ffffff;
+    --text:#111;
+}
+body{ font-family:"Times New Roman", Times, serif; color:var(--text); margin:24px; }
+h2{ margin:6px 0 12px; font-weight:700; }
 
-    <title>Ejercicios de Tablas</title>
+  /* ===== Tabla 1: Matriz vacía ===== */
+.matriz{ border-collapse:collapse; table-layout:fixed; width:100%; max-width:920px; margin-bottom:28px; }
+.matriz td{ border:2px solid var(--line); height:34px; }
+.matriz tr td{ width:calc(100% / 14); } /* 14 columnas aprox */
+
+  /* ===== Tabla 2: Horarios ===== */
+.schedule{ border-collapse:collapse; table-layout:fixed; width:100%; max-width:920px; }
+.schedule th,.schedule td{ border:2px solid var(--line); padding:6px 8px; text-align:center; background:var(--bg); }
+.schedule thead th.day{ background:var(--head); font-weight:700; }
+.schedule thead th.shift{ background:var(--head); font-weight:700; }
+.schedule th.side,.schedule td.side{ background:var(--side); text-align:left; font-weight:700; white-space:nowrap; }
+.schedule .gutter{ width:26px; background:var(--side); }
+.schedule td.data{ background:#fefefe; }
+.schedule .off{ font-weight:700; }
+.schedule thead th{ height:28px; }
+.schedule tbody td,.schedule tbody th{ height:28px; }
+.tiny{ font-size:.9rem; letter-spacing:.02em; }
+</style>
 </head>
 <body>
 
-    <h1>Tabla representando la matriz completa</h1>
+<h2>Tabla representando la matriz completa</h2>
+<table class="matriz" aria-label="Matriz vacía">
+    <!-- 8 filas x 18 columnas -->
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 
-    <table style="border:solid;border-collapse: collapse;">
+<h2>Tabla de horarios de trabajo (agrupando celdas y con estilo)</h2>
+<table class="schedule" aria-label="Horarios de trabajo">
+    <thead>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th class="day" colspan="1"></th>
+        <th class="day" colspan="2">PERSONA</th>
+        <th class="day" colspan="3">LUNES</th>
+        <th class="day" colspan="3">MARTES</th>
+        <th class="day" colspan="3">MIÉRCOLES</th>
+        <th class="day" colspan="3">JUEVES</th>
+        <th class="day" colspan="3">VIERNES</th>
+        <th class="day" colspan="3">SÁBADO</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- ÁREA: Planta A -->
+    <tr>
+        <th class="day rowspan="3"></th>
+        <th class="day">Juan</th>
+        <!-- Lunes = LIBRE -->
+        <td class="data off" colspan="3">LIBRE</td>
+        <!-- Mar: M -->
+        <td class="data">M</td><td class="data">—</td><td class="data">—</td>
+        <!-- Mié: T -->
+        <td class="data">—</td><td class="data">T</td><td class="data">—</td>
+        <!-- Jue: N -->
+        <td class="data">—</td><td class="data">—</td><td class="data">N</td>
+        <!-- Vie: M -->
+        <td class="data">M</td><td class="data">—</td><td class="data">—</td>
+        <!-- Sáb: T -->
+        <td class="data">—</td><td class="data">T</td><td class="data">—</td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th class="side">Manuel</th>
+        <!-- Lun: M -->
+        <td class="data">M</td><td class="data">—</td><td class="data">—</td>
+        <!-- Mar = LIBRE -->
+        <td class="data off" colspan="3">LIBRE</td>
+        <!-- Mié: T -->
+        <td class="data">—</td><td class="data">T</td><td class="data">—</td>
+        <!-- Jue: N -->
+        <td class="data">—</td><td class="data">—</td><td class="data">N</td>
+        <!-- Vie: M -->
+        <td class="data">M</td><td class="data">—</td><td class="data">—</td>
+        <!-- Sáb: T -->
+        <td class="data">—</td><td class="data">T</td><td class="data">—</td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th class="side">Agustín</th>
+        <!-- Lun: T -->
+        <td class="data">—</td><td class="data">T</td><td class="data">—</td>
+        <!-- Mar: N -->
+        <td class="data">—</td><td class="data">—</td><td class="data">N</td>
+        <!-- Mié = LIBRE -->
+        <td class="data off" colspan="3">LIBRE</td>
+        <!-- Jue: M -->
+        <td class="data">M</td><td class="data">—</td><td class="data">—</td>
+        <!-- Vie: T -->
+        <td class="data">—</td><td class="data">T</td><td class="data">—</td>
+        <!-- Sáb: N -->
+        <td class="data">—</td><td class="data">—</td><td class="data">N</td>
     </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    </table>
-    <br>
-    <br>
 
-    <h1>Tabla agrupando celdas y agregando estilos</h1>
-    <h2>Sistema de reserva del Gimnasio de un edificio</h2>
-    <table style="border:solid;border-collapse: collapse;">
-        <tr>
-            <td style="background-color:lightblue" rowspan="2" colspan="2"></td>
-            <td style="background-color:lightblue" colspan="3">LUNES</td>
-            <td style="background-color:lightblue" colspan="3">MARTES</td>
-            <td style="background-color:lightblue" colspan="3">MIERCOLES</td>
-            <td style="background-color:lightblue" colspan="3">JUEVES</td>
-            <td style="background-color:lightblue" colspan="3">VIERNES</td>
-        </tr>
-        <tr>
-            <td style="background-color:lightblue">M</td>
-            <td style="background-color:lightblue">T</td>
-            <td style="background-color:lightblue">N</td>
-            <td style="background-color:lightblue">M</td>
-            <td style="background-color:lightblue">T</td>
-            <td style="background-color:lightblue">N</td>
-            <td style="background-color:lightblue">M</td>
-            <td style="background-color:lightblue">T</td>
-            <td style="background-color:lightblue">N</td>
-            <td style="background-color:lightblue">M</td>
-            <td style="background-color:lightblue">T</td>
-            <td style="background-color:lightblue">N</td>
-            <td style="background-color:lightblue">M</td>
-            <td style="background-color:lightblue">T</td>
-            <td style="background-color:lightblue">N</td>
-        </tr>
-        <tr>
-            <td rowspan="3" style="background-color:lightblue">1° Piso</td>
-            <td style="background-color:lightblue">1° A</td>
-            <td>Reservado</td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td style="background-color:lightblue">1° B</td>
-            <td></td>
-            <td>Reservado</td>
-            <td>Reservado</td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td>Reservado</td>
-            <td>Reservado</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td style="background-color:lightblue">1° C</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td rowspan="3" style="background-color:lightblue">2° Piso</td>
-            <td style="background-color:lightblue">2° A</td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td>Reservado</td>
-            <td>Reservado</td>
-        </tr>
-        <tr>
-            <td style="background-color:lightblue">2° B</td>
-            <td>Reservado</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td>Reservado</td>
-            <td>Reservado</td>
-        </tr>
-        <tr>
-            <td style="background-color:lightblue">2° C</td>
-            <td>Reservado</td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td>Reservado</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-            <td></td>
-            <td>Reservado</td>
-            <td></td>
-        </tr>
-    </table>
-    
+    <!-- ÁREA: Planta B -->
+    <tr>
+        <th class="side gutter" rowspan="2"></th>
+        <th class="side">Javier</th>
+        <!-- Lun: N -->
+        <td class="data">—</td><td class="data">—</td><td class="data">N</td>
+        <!-- Mar: M -->
+        <td class="data">M</td><td class="data">—</td><td class="data">—</td>
+        <!-- Mié: T -->
+        <td class="data">—</td><td class="data">T</td><td class="data">—</td>
+        <!-- Jue = LIBRE -->
+        <td class="data off" colspan="3">LIBRE</td>
+        <!-- Vie: N -->
+        <td class="data">—</td><td class="data">—</td><td class="data">N</td>
+        <!-- Sáb: M -->
+        <td class="data">M</td><td class="data">—</td><td class="data">—</td>
+    </tr>
+    <tr>
+        <th class="side">Igor</th>
+        <!-- Lun: T -->
+        <td class="data">—</td><td class="data">T</td><td class="data">—</td>
+        <!-- Mar: M -->
+        <td class="data">M</td><td class="data">—</td><td class="data">—</td>
+        <!-- Mié: N -->
+        <td class="data">—</td><td class="data">—</td><td class="data">N</td>
+        <!-- Jue: T -->
+        <td class="data">—</td><td class="data">T</td><td class="data">—</td>
+        <!-- Vie = LIBRE -->
+        <td class="data off" colspan="3">LIBRE</td>
+        <!-- Sáb: M -->
+        <td class="data">M</td><td class="data">—</td><td class="data">—</td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>

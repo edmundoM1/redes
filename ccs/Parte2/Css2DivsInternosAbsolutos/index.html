@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Estructura Absoluta Adaptable</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: linear-gradient(to bottom, #b3d9ff, #99ccff);
+      font-family: Arial, sans-serif;
+    }
+
+    .contenedor-principal {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .contenedor-interno1 {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 25%;
+      height: 30%;
+      background-color: rgba(0, 255, 128, 0.8);
+      padding: 10px;
+    }
+
+    .contenedor-interno1 h3 {
+      margin: 0 0 10px 0;
+    }
+
+    .contenedor-interno2 {
+      position: absolute;
+      bottom: 10%;
+      right: 5%;
+      width: 35%;
+      height: 40%;
+      background-color: rgba(144, 238, 144, 0.7);
+      transform: rotate(-8deg);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .contenedor-interno2 h3 {
+      width: 100%;
+      text-align: center;
+      margin: 0 0 10px 0;
+      color: darkgreen;
+    }
+
+    .contenedor-interno2 img {
+      width: 150px;
+      margin: 5px;
+    }
+
+    .contenedor-interno3 {
+      position: absolute;
+      top: 20%;
+      left: 20%;
+      width: 50%;
+      height: 50%;
+      background-color: rgba(100, 100, 100, 0.3);
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .contenedor-interno3 h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center; background: #003399; color: white; margin:0; padding:5px;">
+    Divs internos Absolutos 
+  </h2>
+  
+  <div class="contenedor-principal">
+
+    <div class="contenedor-interno1">
+      <h3>Contenedor interno 1.</h3>
+      <p>ad fasd asd asdf asdf asdf asdf fasd fasd fasd fa adf asdf asdf asdf asd fasdf asdf asdf</p>
+    </div>
+
+    <div class="contenedor-interno2">
+      <h3>Contenedor interno 2</h3>
+      <img src="Tigre.jpg" alt="Trigre">
+      <img src="Tigre.jpg" alt="Trigre">
+      <img src="Tigre.jpg" alt="Trigre">
+      <img src="Tigre.jpg" alt="Trigre">
+    </div>
+
+    <div class="contenedor-interno3">
+      <h3>Contenedor interno 3.</h3>
+      <p>ad fasd asd asdf asdf asdf asdf fasd fasd fasd fa adf asdf asdf asdf asd fasdf asdf asdf</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur illo accusamus minus. Voluptatum harum nesciunt aperiam? Quis doloremque veritatis perspiciatis atque, perferendis aliquid ipsum fugit.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, minus voluptatem incidunt, dolorum vero perspiciatis atque reiciendis.</p>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio Layout</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #fff;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;   /* centrado horizontal */
+      height: 100vh;             /* ocupa toda la altura */
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      max-width: 1100px;   /* ancho máximo */
+      height: 100vh;       /* 👉 ocupa toda la ventana */
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    header {
+      background: #666;
+      color: #000;
+      text-align: left;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    footer {
+      background: #666;
+      color: #000;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+    }
+
+    nav {
+      background: salmon;
+      width: 220px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    nav h2 {
+      text-align: center;
+      font-weight: bold;
+      margin: 0 0 20px 0;
+    }
+
+    .submenu {
+      background: #ccc;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .submenu a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      text-align: center;
+      padding: 5px 0;
+    }
+
+    .submenu a:hover {
+      background: #999;
+      color: white;
+    }
+
+    main {
+      flex: 1;
+      background: #eee;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      Título principal de página 1
+    </header>
+
+    <div class="container">
+      <nav>
+        <h2>Menu</h2>
+        <div class="submenu">
+         <a href="/Html/index.html" target="contenido">HTML</a>
+         <a href="/Css/index.html" target="contenido">CSS</a>
+         <a href="Jscript/index.html" target="contenido">JSCRIPT</a>
+         <a href="Php/index.html" target="contenido">PHP</a>
+
+        </div>
+      </nav>
+
+      <main>
+        <iframe src="contenidoinicial.html" name="contenido"></iframe>
+      </main>
+    </div>
+
+    <footer>
+      Pie de página
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Expandir Imagen al 30%</title>
+    <style>
+        body {
+            background-color: rgb(179, 217, 234);
+            font-family: Arial, sans-serif;
+        }
+        .tabs {
+            margin-top: 20px;
+        }
+        .tab {
+            background: rgb(224, 224, 224);
+            border: 1px solid rgb(136, 136, 136);
+            padding: 10px 40px;
+            display: inline-block;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .tab.active {
+            background: rgb(18, 83, 148);
+            color: rgb(255, 255, 255);
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        .images-container {
+            display: flex;
+            margin: 20px auto;
+        }
+        .img-box {
+            border: 2px solid rgb(68, 68, 68);
+            width: 100px;
+            height: 80px;
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: height 0.3s;
+            background: rgb(255, 255, 255);
+            cursor: pointer;
+        }
+        .img-box:active {
+            height: 30%;
+            width: 30%;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        h2 {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 20px 0 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab">Opción 1.</div>
+        <div class="tab active" onclick="location.href='opcion2/index.html'">Opción 2.</div>
+        <div class="tab" onclick="location.href='opcion3/index.html'">Opción 3.</div>
+    </div>
+    <div class="form-group">
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido">
+    </div>
+    <div class="form-group">
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres">
+    </div>
+    <h2>Expandir la imagen al 30% de la altura de la ventana mientras mantienes presionado</h2>
+    <div class="images-container" id="imagesContainer">
+        <div class="img-box"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=100&q=80" alt="Paisaje"></div>
+        <div class="img-box"><img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=100&q=80" alt="Tigre"></div>
+        <div class="img-box"><img src="https://imgs.search.brave.com/1KpuFo54PfZz6kf9tQPBJmtFlEWWL9_hdySX4p2WHI0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNjYv/MTI4LzY4Mi9zbWFs/bC9tYWplc3RpYy1t/b3VudGFpbi1sYW5k/c2NhcGUtYXQtc3Vu/cmlzZS13aXRoLXZh/bGxleXMtYW5kLXBl/YWtzLWJhdGhlZC1p/bi1zb2Z0LWdvbGRl/bi1saWdodC1waG90/by5qcGVn" alt="Montaña"></div>
+        <div class="img-box"><img src="https://imgs.search.brave.com/RKS2k6rh_kDyMDss3NEeMTyUpik_1KuWbuFCZCZUsOc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtcHJlbWl1/bS9mb3RvLWRlLWNs/b3NlLXVwLWRhcy1i/ZWxhcy1mbG9yZXMt/YWRlcXVhZG8tcGFy/YS1mdW5kby1mbG9y/YWxfMzI4MDQ2LTE3/OTMyLmpwZz9zZW10/PWFpc19oeWJyaWQm/dz03NDA" alt="Flores"></div>
+    </div>
+</body>
+</html>

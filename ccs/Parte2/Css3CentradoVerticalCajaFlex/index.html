@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caja flexible</title>
+<style>
+body{
+  margin:0;
+  padding:0;
+  height:100%;
+  font:18px/1.2 Arial, sans-serif;
+  background:#fff
+}
+.banda{
+  background:#fff9c7;
+  min-height:70vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:6vh 4vw;
+}
+.caja-flex{
+  display:flex;
+  flex-wrap:wrap;
+  gap:4vw;
+  width:100%;
+  max-width:1200px;
+  justify-content:space-between;
+}
+.item{
+  flex:1 1 28%;
+  max-width:32%;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.item img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+@media (max-width:1000px){
+  .item{flex-basis:45%;max-width:48%}
+}
+@media (max-width:640px){
+  .item{flex-basis:100%;max-width:100%}
+}
+</style>
+</head>
+<body>
+<section class="banda">
+  <div class="caja-flex">
+    <div class="item"><img src="Tigre.jpg" alt=""></div>
+    <div class="item"><img src="Tigre.jpg" alt=""></div>
+    <div class="item"><img src="Tigre.jpg" alt=""></div>
+  </div>
+</section>
+</body>
+</html>

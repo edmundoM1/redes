@@ -1,0 +1,48 @@
+{
+  "maestro_empleados": [
+    {
+      "legajo": "EMP001",
+      "apellido_y_nombres": "García, Juan Carlos",
+      "dni": "35123456",
+      "fecha_de_ingreso": "2022-03-15",
+      "area_de_desempeno": "CONT",
+      "sueldo_basico": 850000.00,
+      "foto_empleado": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Bill_Gates_2013.jpg/960px-Bill_Gates_2013.jpg?20170306152938"
+    },
+    {
+      "legajo": "EMP002",
+      "apellido_y_nombres": "Rodríguez, María Elena",
+      "dni": "28987654",
+      "fecha_de_ingreso": "2021-07-20",
+      "area_de_desempeno": "VENT",
+      "sueldo_basico": 950000.00,
+      "foto_empleado": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Bill_Gates_2013.jpg/960px-Bill_Gates_2013.jpg?20170306152938"
+    },
+    {
+      "legajo": "EMP003",
+      "apellido_y_nombres": "López, Carlos Alberto",
+      "dni": "42567890",
+      "fecha_de_ingreso": "2023-01-10",
+      "area_de_desempeno": "COMP",
+      "sueldo_basico": 750000.00,
+      "foto_empleado": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Bill_Gates_2013.jpg/960px-Bill_Gates_2013.jpg?20170306152938"
+    },
+    {
+      "legajo": "EMP004",
+      "apellido_y_nombres": "Fernández, Ana Sofía",
+      "dni": "39234567",
+      "fecha_de_ingreso": "2020-11-05",
+      "area_de_desempeno": "DEP",
+      "sueldo_basico": 1200000.00,
+      "foto_empleado": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Bill_Gates_2013.jpg/960px-Bill_Gates_2013.jpg?20170306152938"
+    },
+    {
+      "legajo": "EMP005",
+      "apellido_y_nombres": "Martínez, Roberto Daniel",
+      "dni": "33445566",
+      "fecha_de_ingreso": "2022-09-12",
+      "area_de_desempeno": "CC"
+      "sueldo_basico": 780000.00,
+      "foto_empleado": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Bill_Gates_2013.jpg/960px-Bill_Gates_2013.jpg?20170306152938"
+    }
+  ],
