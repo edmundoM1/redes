@@ -1,25 +1,22 @@
-
-{
-  "areas_disponibles": [
-    {
-      "cod_area": "CONT",
-      "descripcion": "Contable"
-    },
-    {
-      "cod_area": "VENT",
-      "descripcion": "Ventas"
-    },
-    {
-      "cod_area": "COMP",
-      "descripcion": "Compras"
-    },
-    {
-      "cod_area": "DEP",
-      "descripcion": "Depósito"
-    },
-    {
-      "cod_area": "CC",
-      "descripcion": "Cuentas Corrientes"
-    }
-  ]
-}
+[
+  {
+    "cod_area": "CONT",
+    "descripcion": "Contable"
+  },
+  {
+    "cod_area": "VENT",
+    "descripcion": "Ventas"
+  },
+  {
+    "cod_area": "COMP",
+    "descripcion": "Compras"
+  },
+  {
+    "cod_area": "DEP",
+    "descripcion": "Depósito"
+  },
+  {
+    "cod_area": "CC",
+    "descripcion": "Cuentas Corrientes"
+  }
+]
