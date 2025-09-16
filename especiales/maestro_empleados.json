@@ -36,13 +36,14 @@
       "sueldo_basico": 1200000.00,
       "foto_empleado": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Bill_Gates_2013.jpg/960px-Bill_Gates_2013.jpg?20170306152938"
     },
-    {
-      "legajo": "EMP005",
-      "apellido_y_nombres": "Martínez, Roberto Daniel",
-      "dni": "33445566",
-      "fecha_de_ingreso": "2022-09-12",
-      "area_de_desempeno": "CC",
-      "sueldo_basico": 780000.00,
-      "foto_empleado": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Bill_Gates_2013.jpg/960px-Bill_Gates_2013.jpg?20170306152938"
-    }
-  ],
+      {
+        "legajo": "EMP005",
+        "apellido_y_nombres": "Martínez, Roberto Daniel",
+        "dni": "33445566",
+        "fecha_de_ingreso": "2022-09-12",
+        "area_de_desempeno": "CC",
+        "sueldo_basico": 780000.00,
+        "foto_empleado": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Bill_Gates_2013.jpg/960px-Bill_Gates_2013.jpg?20170306152938"
+      }
+    ]
+  }
