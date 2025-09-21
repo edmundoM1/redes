@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabla de Empleados</title>
+  <style>
+    :root {
+      --header-bg: #fdf7cf;         
+      --header-text: #000000;
+      --table-header-bg: #ff7f6a;  
+      --table-body-even: #e7eef3;   
+      --table-body-odd: #d4e1ec;
+      --table-footer-bg: #ff7f6a;
+      --button-bg: #ffffff;
+      --button-hover: #eeeeee;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: var(--header-bg);
+      overflow: hidden; 
+    }
+
+    #app {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+    }
+
+    header {
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+      background-color: var(--header-bg);
+      color: var(--header-text);
+    }
+
+    .button-bar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.5rem;
+    }
+    .button-bar button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      background-color: var(--button-bg);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .button-bar button:hover {
+      background-color: var(--button-hover);
+    }
+
+    .table-wrapper {
+      flex: 1;
+      margin: 0.5rem;
+      margin-top: 3.5rem; 
+      border: 1px solid #ddd;
+      overflow-y: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    colgroup col:nth-child(1) { width: 12%; }
+    colgroup col:nth-child(2) { width: 28%; }
+    colgroup col:nth-child(3) { width: 12%; }
+    colgroup col:nth-child(4) { width: 14%; }
+    colgroup col:nth-child(5) { width: 14%; }
+    colgroup col:nth-child(6) { width: 15%; }
+    colgroup col:nth-child(7) { width: 15%; }
+
+    thead {
+      background-color: var(--table-header-bg);
+      color: var(--header-text);
+    }
+    thead th {
+      padding: 0.5rem;
+      border-right: 1px solid #f6d4ce;
+      text-align: left;
+      font-size: 0.9rem;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background-color: var(--table-header-bg);
+    }
+    thead th:last-child { border-right: none; }
+
+    tbody tr { border-bottom: 1px solid #ccc; }
+    tbody td {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      overflow-wrap: anywhere;
+    }
+    tbody tr:nth-child(even) { background-color: var(--table-body-even); }
+    tbody tr:nth-child(odd) { background-color: var(--table-body-odd); }
+
+    tbody td img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    tfoot tr {
+      background-color: var(--table-footer-bg);
+      color: var(--header-text);
+      position: sticky;
+      bottom: 0;
+      z-index: 2;
+    }
+    tfoot td {
+      padding: 0.5rem;
+      font-weight: bold;
+      border-top: 1px solid #f6d4ce;
+      text-align: left;
+    }
+
+    @media (max-width: 768px) {
+      thead th,
+      tbody td,
+      tfoot td {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+      }
+      .button-bar button {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.8rem;
+      }
+      .form-group { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header style="text-align: start; padding: 1rem 1rem; font-size: 1.5rem; font-weight: bold;">Empleados</header>
+    <div class="button-bar">
+      <button id="btnLoad">Cargar datos</button>
+      <button id="btnClear">Vaciar datos</button>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <colgroup>
+          <col />
+          <col />
+          <col />
+          <col />
+          <col />
+          <col />
+          <col />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Legajo</th>
+            <th>Apellido y Nombres</th>
+            <th>DNI</th>
+            <th>Fecha ingreso</th>
+            <th>Área</th>
+            <th>Sueldo básico</th>
+            <th>Foto</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+        <tfoot id="tableFoot">
+          <tr>
+            <td colspan="7">No hay datos cargados</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <footer style="padding: 1rem; text-align: center; font-size: 1.5rem; font-weight: bold;">Jefe consideracion con el Venezolano </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

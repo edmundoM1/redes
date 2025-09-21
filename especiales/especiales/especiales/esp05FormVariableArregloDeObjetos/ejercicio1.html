@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario de Alta </title>
+
+  <style>
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      overflow: hidden; 
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
+      box-sizing: border-box;
+    }
+
+    header,
+    footer {
+      flex: 0 0 10%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #1c344c;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      background-color: #f1d8c0;
+      padding: 1rem;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+
+      overflow: hidden;
+    }
+
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 0.9rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .form-actions {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      background-color: #0505051f;
+      border: 1px solid #050505;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+    }
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header style="text-align: start; padding: 1rem 1rem; font-size: 1.5rem; font-weight: bold; color:white" >
+      Formulario para ALTA
+    </header>
+    <main>
+
+      <form id="empleadoForm" method="GET">
+        <div>
+          <label for="legajo">Legajo:</label>
+          <input type="text" id="legajo" name="legajo" required placeholder="Ej: EMP016" />
+        </div>
+        <div>
+          <label for="apellido">Apellido y Nombres:</label>
+          <input type="text" id="apellido" name="apellido" required placeholder="Ej: Pérez, Juan Carlos" />
+        </div>
+        <div>
+          <label for="dni">DNI:</label>
+          <input type="text" id="dni" name="dni" required placeholder="Ej: 12345678" />
+        </div>
+        <div>
+          <label for="fechaIngreso">Fecha de ingreso:</label>
+          <input type="date" id="fechaIngreso" name="fechaIngreso" required />
+        </div>
+        <div>
+          <label for="Area">Área de desempeño:</label>
+          <select id="Area" name="Area" required>
+
+            <option value="">Seleccione un área...</option>
+          </select>
+        </div>
+        <div>
+          <label for="sueldo">Sueldo básico:</label>
+          <input type="number" id="sueldo" name="sueldo" min="0" step="0.01" required placeholder="Ej: 850000" />
+        </div>
+        <div>
+          <label for="foto">URL de la foto:</label>
+          <input type="file" accept="image/*" id="foto" name="foto" placeholder="https://ejemplo.com/foto.jpg" />
+        </div>
+        <div class="form-actions">
+          <button type="submit" formaction="../respuesta.html" id="submitBtn">Agregar Empleado</button>
+        </div>
+      </form>
+    </main>
+    <footer style="text-align: center; padding: 1rem 1rem; font-size: 1.5rem; font-weight: bold; color:white" >
+      Con Piedad jefe 
+    </footer>
+  </div>
+  <script>
+
+    let areas = [];
+
+
+    async function cargarAreas() {
+      try {
+        const response = await fetch('../EjercicioJson/area.json');
+        if (!response.ok) {
+          throw new Error(`Error al cargar áreas: ${response.status}`);
+        }
+        const data = await response.json();
+        areas = data.area;
+        
+        const selectArea = document.getElementById('Area');
+        areas.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.cod_area;
+          option.textContent = `${item.cod_area} - ${item.descripcion}`;
+          selectArea.appendChild(option);
+        });
+        
+        console.log('Áreas cargadas exitosamente:', areas.length);
+      } catch (error) {
+        console.error('Error al cargar áreas:', error);
+        alert('Error al cargar los datos de áreas. Verifique que el archivo JSON esté disponible.');
+      }
+    }
+
+    function formatCurrency(value) {
+      return value.toLocaleString("es-AR", {
+        style: "currency",
+        currency: "ARS",
+        minimumFractionDigits: 2,
+      });
+    }
+
+    function agregarFilaEmpleado(empleado) {
+      const tbody = document.querySelector('#Table tbody');
+      const tr = document.createElement('tr');
+      
+      const fotoUrl = empleado.foto || "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Bill_Gates_2013.jpg/960px-Bill_Gates_2013.jpg?20170306152938";
+      
+      tr.innerHTML = `
+        <td>${empleado.legajo}</td>
+        <td>${empleado.apellido}</td>
+        <td>${empleado.dni}</td>
+        <td>${empleado.fechaIngreso}</td>
+        <td>${empleado.areaTexto}</td>
+        <td>${formatCurrency(empleado.sueldo)}</td>
+        <td><img src="${fotoUrl}" alt="Foto de ${empleado.apellido}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;"></td>
+      `;
+      tbody.appendChild(tr);
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      await cargarAreas();
+
+      const form = document.getElementById('empleadoForm');
+      form.addEventListener('submit', (event) => {
+
+        const legajo = form.legajo.value.trim();
+        const apellido = form.apellido.value.trim();
+        const dni = form.dni.value.trim();
+        const fechaIngreso = form.fechaIngreso.value;
+        const area = form.Area.value;
+        const sueldo = parseFloat(form.sueldo.value);
+        
+        if (!legajo || !apellido || !dni || !fechaIngreso || !area || !sueldo) {
+          event.preventDefault();
+          alert('Por favor, complete todos los campos obligatorios.');
+          return;
+        }
+        
+        if (isNaN(sueldo) || sueldo < 0) {
+          event.preventDefault(); 
+          alert('Por favor, ingrese un sueldo válido.');
+          return;
+        }
+        
+      });
+    });
+  </script>
+</body>
+</html>

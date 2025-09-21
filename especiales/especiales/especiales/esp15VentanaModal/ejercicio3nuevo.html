@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicio 3 Ventana Modal</title>
+  <style>
+    /* Estilos básicos para el contenedor principal */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #cc9374; /* tono claro inspirado en la captura */
+    }
+
+    /* Contenedor global donde vive el contenido principal */
+    .contenedor-global {
+      padding: 20px;
+      position: relative;
+      transition: opacity 0.3s ease;
+    }
+
+    .contenedor-global.desactivado {
+      pointer-events: none;
+      opacity: 0.3;         
+    }
+
+
+    .btn-abrir-modal {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ccc;
+      border: 2px solid #aaa;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+
+    .ayuda {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .ayuda p {
+      margin: 0 0 10px;
+    }
+
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none; /* oculto por defecto */
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+
+    .modal-contenido {
+      background-color: #f7f5c7; 
+      border: 1px solid #ccc;
+      width: 80%;
+      max-width: 800px;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* Header de la modal */
+    .modal-header {
+      background-color: #c6c6c6; 
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .modal-header button {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      padding: 20px;
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .form-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-group.full-width {
+      flex: 1 1 100%;
+    }
+    
+    .form-group label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    .form-group input,
+    .form-group select {
+      padding: 8px;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+
+    .form-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .form-actions button {
+      padding: 10px 30px;
+      background-color: #e8e8e8;
+      border: 1px solid #999;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    .form-actions button:hover {
+      background-color: #d8d8d8;
+    }
+
+    .modal-footer {
+      padding: 10px;
+      background-color: #ddd;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .modal-overlay {
+        padding: 10px;
+      }
+      
+      .modal-contenido {
+        width: 95%;
+        max-width: none;
+        margin: 0;
+      }
+      
+      .modal-body {
+        padding: 15px;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+      
+      .form-group {
+        flex: 1 1 100%;
+      }
+      
+      .modal-header h2 {
+        font-size: 1rem;
+      }
+      
+      .modal-header {
+        padding: 8px;
+      }
+      
+      .modal-footer {
+        padding: 8px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .modal-overlay {
+        padding: 5px;
+      }
+      
+      .modal-contenido {
+        width: 98%;
+        margin: 0;
+      }
+      
+      .modal-body {
+        padding: 10px;
+      }
+      
+      .form-group input,
+      .form-group select {
+        padding: 6px;
+        font-size: 0.9rem;
+      }
+      
+      .form-actions button {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor-global" id="contenedor">
+    <h1>ejercicio 3 ventana modal </h1>
+    <button class="btn-abrir-modal" id="btnAbrir">Abre DIV modal</button>
+
+    <div class="ayuda">
+      <p><strong>Ayudas para el ejercicio</strong></p>
+      <p>El jefe deberá ser considerado con el venezolano.</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-contenido">
+      <div class="modal-header">
+        <h2>Maestro empleado</h2>
+
+        <button id="btnCerrar" aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="empleadoForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="legajo">Legajo:</label>
+              <input type="text" id="legajo" name="legajo" required placeholder="Ej: EMP016" />
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido y Nombres:</label>
+              <input type="text" id="apellido" name="apellido" required placeholder="Ej: Pérez, Juan Carlos" />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="dni">DNI:</label>
+              <input type="text" id="dni" name="dni" required placeholder="Ej: 12345678" />
+            </div>
+            <div class="form-group">
+              <label for="fechaIngreso">Fecha de ingreso:</label>
+              <input type="date" id="fechaIngreso" name="fechaIngreso" required />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="area">Área de desempeño:</label>
+              <select id="area" name="area" required>
+                <option value="">Seleccione un área...</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sueldo">Sueldo básico:</label>
+              <input type="number" id="sueldo" name="sueldo" min="0" step="0.01" required placeholder="Ej: 850000" />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="foto">URL de la foto:</label>
+              <input type="url" id="foto" name="foto" placeholder="https://ejemplo.com/foto.jpg" />
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" id="submitBtn">Agregar Empleado</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">Con piedad Jefe</div>
+    </div>
+  </div>
+
+  <script>
+
+    let areas = [];
+
+
+    const contenedor = document.getElementById('contenedor');
+    const btnAbrir = document.getElementById('btnAbrir');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const btnCerrar = document.getElementById('btnCerrar');
+    const empleadoForm = document.getElementById('empleadoForm');
+
+
+    async function cargarAreas() {
+      try {
+        const response = await fetch('../EjercicioJson/area.json');
+        if (!response.ok) {
+          throw new Error(`Error al cargar áreas: ${response.status}`);
+        }
+        const data = await response.json();
+        areas = data.area;
+        
+
+        const selectArea = document.getElementById('area');
+        areas.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.cod_area;
+          option.textContent = `${item.cod_area} - ${item.descripcion}`;
+          selectArea.appendChild(option);
+        });
+        
+        console.log('Áreas cargadas exitosamente:', areas.length);
+      } catch (error) {
+        console.error('Error al cargar áreas:', error);
+        alert('Error al cargar los datos de áreas. Verifique que el archivo JSON esté disponible.');
+      }
+    }
+
+    function abrirModal() {
+
+      modalOverlay.style.display = 'flex';
+
+      contenedor.classList.add('desactivado');
+
+      const ancho = window.innerWidth;
+      alert(`El ancho de la ventana es de ${ancho} px`);
+    }
+    function cerrarModal() {
+      modalOverlay.style.display = 'none';
+      contenedor.classList.remove('desactivado');
+
+      empleadoForm.reset();
+    }
+
+
+    function formatCurrency(value) {
+      return value.toLocaleString("es-AR", {
+        style: "currency",
+        currency: "ARS",
+        minimumFractionDigits: 2,
+      });
+    }
+
+
+    empleadoForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const legajo = empleadoForm.legajo.value.trim();
+      const apellido = empleadoForm.apellido.value.trim();
+      const dni = empleadoForm.dni.value.trim();
+      const fechaIngreso = empleadoForm.fechaIngreso.value;
+      const area = empleadoForm.area.value;
+      const sueldo = parseFloat(empleadoForm.sueldo.value);
+      const foto = empleadoForm.foto.value.trim();
+      
+      if (!legajo || !apellido || !dni || !fechaIngreso || !area || !sueldo) {
+        alert('Por favor, complete todos los campos obligatorios.');
+        return;
+      }
+      
+
+      if (isNaN(sueldo) || sueldo < 0) {
+        alert('Por favor, ingrese un sueldo válido.');
+        return;
+      }
+
+      const areaTexto = empleadoForm.area.options[empleadoForm.area.selectedIndex].text;
+      
+
+      const empleado = {
+        legajo,
+        apellido,
+        dni,
+        fechaIngreso,
+        areaTexto,
+        sueldo,
+        foto
+      };
+      
+
+      console.log('Empleado creado:', empleado);
+      
+
+      alert(`Empleado ${empleado.apellido} (${empleado.legajo}) agregado exitosamente.\nSueldo: ${formatCurrency(empleado.sueldo)}`);
+      
+      cerrarModal();
+    });
+
+    btnAbrir.addEventListener('click', abrirModal);
+    btnCerrar.addEventListener('click', cerrarModal);
+
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      await cargarAreas();
+    });
+  </script>
+</body>
+</html>
