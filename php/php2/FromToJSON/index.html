@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Form to JSON con API Fetch</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1 class="title">Formulario de Registro AJAX vs NORMAL</h1>
+    <form id="formulario" class="formulario" method="POST" action="respuesta.php">
+        
+        <ul>
+            <li>ID del usuario</li>
+            <input type="text" name="RegistroCodUsuario" placeholder="912">
+            
+            <li>Apellido</li>
+            <input type="text" name="RegistroApellido" placeholder="ortega">
+            
+            <li>Nombre de usuario</li>
+            <input type="text" name="RegistroNombre" placeholder="ariel">
+        </ul>
+
+        <button type="submit" class="envio-tradi">enviar form de manera tradicional</button>
+
+    </form>
+
+    <button id="disparar-ajax" class="ajax-disparador">Disparar requerimiento asincronico AJAX</button>
+
+    <div class="volver-div">
+        <button class="volver-atras"><a href="../">Volver atras</a></button>
+    </div>
+
+    <script>
+        const botonAjax = document.getElementById('disparar-ajax');
+        const formulario = document.getElementById('formulario');
+        
+        botonAjax.addEventListener('click', () => {
+            
+            const objDatosFormulario = new FormData(formulario);
+            
+            console.log("valor del input idUsuario: " + objDatosFormulario.get("RegistroCodUsuario"));
+
+            const options = {
+                method: 'POST',
+                body: objDatosFormulario, 
+            };
+            
+            fetch('respuesta.php', options)
+                .then(respuesta => {
+                    return respuesta.text(); 
+                })
+                .then(textoJson => {
+                    alert(textoJson);
+                })
+                .catch(error => {
+                    console.error('Error AJAX:', error);
+                    alert('Error al obtener la respuesta del servidor.');
+                });
+        });
+    </script>
+</body>
+</html>
